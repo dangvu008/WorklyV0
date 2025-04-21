@@ -1,7 +1,7 @@
 "use client"
 import { View, Text, StyleSheet, TouchableOpacity, Switch } from "react-native"
 import { Ionicons } from "@expo/vector-icons"
-import { useTheme } from "../hooks/useTheme"
+import { useTheme } from "../hooks"
 
 const AlarmItem = ({ alarm, onToggle, onEdit, onDelete }) => {
   const { isDarkMode } = useTheme()

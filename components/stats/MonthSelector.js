@@ -2,7 +2,7 @@
 import { View, Text, StyleSheet, TouchableOpacity } from "react-native"
 import { Ionicons } from "@expo/vector-icons"
 import { format } from "date-fns"
-import { useTheme } from "../../hooks/useTheme"
+import { useTheme } from "../../hooks"
 
 const MonthSelector = ({ selectedDate, onPreviousMonth, onNextMonth }) => {
   const { isDarkMode } = useTheme()

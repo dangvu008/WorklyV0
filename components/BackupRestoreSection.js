@@ -1,8 +1,7 @@
 "use client"
 import { View, Text, StyleSheet, TouchableOpacity, ActivityIndicator } from "react-native"
 import { Ionicons } from "@expo/vector-icons"
-import { useTheme } from "../hooks/useTheme"
-import { useBackup } from "../hooks/useBackup"
+import { useTheme, useBackup } from "../hooks"
 import { useState } from "react"
 
 const BackupRestoreSection = () => {

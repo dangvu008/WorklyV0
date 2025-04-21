@@ -5,22 +5,14 @@ import { View, Text, StyleSheet, ScrollView, TouchableOpacity, Alert, RefreshCon
 import { SafeAreaView } from "react-native-safe-area-context"
 import { Ionicons } from "@expo/vector-icons"
 import { format } from "date-fns"
-import { vi, enUS } from "date-fns/locale"
+import { vi } from "date-fns/locale/vi"
+import { enUS } from "date-fns/locale/en-US"
 
 // Components
-import MultiActionButton from "../components/MultiActionButton"
-import WeekStatusGrid from "../components/WeekStatusGrid"
-import WorkNotesList from "../components/WorkNotesList"
-import WeatherAlert from "../components/WeatherAlert"
-import WeatherWidget from "../components/WeatherWidget"
+import { MultiActionButton, WeekStatusGrid, WorkNotesList, WeatherAlert, WeatherWidget } from "../components"
 
 // Hooks
-import { useTheme } from "../hooks/useTheme"
-import { useTranslation } from "../hooks/useTranslation"
-import { useWork } from "../hooks/useWork"
-import { useNotification } from "../hooks/useNotification"
-import { useWeather } from "../hooks/useWeather"
-import { useAlarm } from "../hooks/useAlarm"
+import { useTheme, useTranslation, useWork, useNotification, useWeather, useAlarm } from "../hooks"
 
 const HomeScreen = ({ navigation }) => {
   const { theme, isDarkMode } = useTheme()
@@ -57,7 +49,7 @@ const HomeScreen = ({ navigation }) => {
     } else {
       setRelevantAlerts([])
     }
-  }, [currentShift, weatherAlerts, weatherSettings.warningEnabled])
+  }, [currentShift, weatherAlerts, weatherSettings.warningEnabled, checkWeatherAlertsForShift])
 
   // Kiểm tra trạng thái nút Ký Công
   useEffect(() => {
@@ -655,16 +647,6 @@ const styles = StyleSheet.create({
     fontSize: 14,
     fontStyle: "italic",
   },
-  closeButton: {
-    paddingVertical: 10,
-    borderRadius: 8,
-    alignItems: "center",
-  },
-  closeButtonText: {
-    color: "#FFFFFF",
-    fontSize: 16,
-    fontWeight: "500",
-  },
   modalHeader: {
     flexDirection: "row",
     justifyContent: "space-between",
@@ -710,21 +692,6 @@ const styles = StyleSheet.create({
     color: "#FFFFFF",
     fontSize: 16,
     fontWeight: "500",
-  },
-  content: {
-    flex: 1,
-    justifyContent: "center",
-    alignItems: "center",
-    padding: 16,
-  },
-  title: {
-    fontSize: 32,
-    fontWeight: "bold",
-    marginBottom: 16,
-  },
-  subtitle: {
-    fontSize: 16,
-    textAlign: "center",
   },
 })
 

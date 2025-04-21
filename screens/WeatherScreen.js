@@ -1,6 +1,6 @@
 "use client"
 import { useState } from "react"
-import { Switch } from "@/components/ui/switch"
+import { Switch } from "react-native"
 
 import {
   View,
@@ -13,11 +13,8 @@ import {
   RefreshControl,
 } from "react-native"
 import { Ionicons } from "@expo/vector-icons"
-import { useTheme } from "../hooks/useTheme"
-import { useWeather } from "../hooks/useWeather"
-import { useWork } from "../hooks/useWork"
-import WeatherWidget from "../components/WeatherWidget"
-import WeatherAlert from "../components/WeatherAlert"
+import { useTheme, useWeather, useWork } from "../hooks"
+import { WeatherWidget, WeatherAlert } from "../components"
 
 const WeatherScreen = ({ navigation }) => {
   const { isDarkMode } = useTheme()

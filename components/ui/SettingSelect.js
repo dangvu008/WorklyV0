@@ -3,7 +3,7 @@
 import { useState } from "react"
 import { View, Text, StyleSheet, TouchableOpacity, Modal, FlatList } from "react-native"
 import { Ionicons } from "@expo/vector-icons"
-import { useTheme } from "../../hooks/useTheme"
+import { useTheme } from "../../hooks"
 
 const SettingSelect = ({ title, description, value, options, onChange }) => {
   const { isDarkMode } = useTheme()

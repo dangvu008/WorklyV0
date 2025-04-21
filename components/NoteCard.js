@@ -2,7 +2,7 @@
 
 import { View, Text, StyleSheet, TouchableOpacity } from "react-native"
 import { Ionicons } from "@expo/vector-icons"
-import { useTheme } from "../hooks/useTheme"
+import { useTheme } from "../hooks"
 import { format, parseISO } from "date-fns"
 
 const NoteCard = ({ note, onPress, onDelete }) => {

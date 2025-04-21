@@ -1,10 +1,8 @@
 "use client"
 import { useState } from "react"
 import { View, Text, StyleSheet, TouchableOpacity, Alert } from "react-native"
-import { format, startOfWeek, addDays, isAfter, isSameDay, isBefore } from "date-fns"
-import { useTheme } from "../hooks/useTheme"
-import { useTranslation } from "../hooks/useTranslation"
-import { useWork } from "../hooks/useWork"
+import { format, addDays, isAfter, isSameDay, isBefore, startOfWeek } from "date-fns"
+import { useTheme, useTranslation, useWork } from "../hooks"
 
 const WeekStatusGrid = ({ onDayPress }) => {
   const { theme, isDarkMode } = useTheme()

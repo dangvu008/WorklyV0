@@ -3,8 +3,7 @@
 import React from "react"
 import { View, Text, StyleSheet, TouchableOpacity, Animated, Easing } from "react-native"
 import { Ionicons } from "@expo/vector-icons"
-import { useTheme } from "../hooks/useTheme"
-import { useTranslation } from "../hooks/useTranslation"
+import { useTheme, useTranslation } from "../hooks"
 
 const MultiActionButton = ({ workStatus, onAction, onReset, showResetButton = false, simpleMode = false }) => {
   const { theme } = useTheme()

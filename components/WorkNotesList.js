@@ -3,9 +3,7 @@
 import { useState, useEffect } from "react"
 import { View, Text, StyleSheet, TouchableOpacity, FlatList, Alert } from "react-native"
 import { Ionicons } from "@expo/vector-icons"
-import { useTheme } from "../hooks/useTheme"
-import { useTranslation } from "../hooks/useTranslation"
-import { useWork } from "../hooks/useWork"
+import { useTheme, useTranslation, useWork } from "../hooks"
 import AsyncStorage from "@react-native-async-storage/async-storage"
 
 const WorkNotesList = ({ limit = 3, navigation }) => {
@@ -190,10 +188,6 @@ const styles = StyleSheet.create({
     fontSize: 16,
     fontWeight: "500",
     marginBottom: 4,
-  },
-  noteText: {
-    fontSize: 14,
-    lineHeight: 20,
   },
   reminderContainer: {
     flexDirection: "row",

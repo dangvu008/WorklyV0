@@ -6,12 +6,10 @@ import { Ionicons } from "@expo/vector-icons"
 import AsyncStorage from "@react-native-async-storage/async-storage"
 
 // Hooks
-import { useTheme } from "../hooks/useTheme"
-import { useTranslation } from "../hooks/useTranslation"
-import { useWork } from "../hooks/useWork"
-import { useNotification } from "../hooks/useNotification"
-import { useWeather } from "../hooks/useWeather"
-import { isPaidApiEnabled, setPaidApiKey, removePaidApiKey } from "../services/WeatherService"
+import { useTheme, useTranslation, useWork, useNotification, useWeather } from "../hooks"
+import { WeatherService } from "../services"
+
+const { isPaidApiEnabled, setPaidApiKey, removePaidApiKey } = WeatherService
 
 const SettingsScreen = ({ navigation }) => {
   const { theme, isDarkMode, toggleTheme } = useTheme()

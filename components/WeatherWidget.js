@@ -2,8 +2,7 @@
 import { View, Text, StyleSheet, TouchableOpacity, Image } from "react-native"
 import { Ionicons } from "@expo/vector-icons"
 import { useState } from "react"
-import { useTheme } from "../hooks/useTheme"
-import { useWeather } from "../hooks/useWeather"
+import { useTheme, useWeather } from "../hooks"
 
 const WeatherWidget = ({ onRefresh, showForecast = true }) => {
   const { isDarkMode } = useTheme()

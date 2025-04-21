@@ -4,14 +4,10 @@ import { View, Text, TouchableOpacity, StyleSheet, Animated } from "react-native
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs"
 import { useSafeAreaInsets } from "react-native-safe-area-context"
 import { Ionicons } from "@expo/vector-icons"
-import { useTheme } from "../hooks/useTheme"
+import { useTheme } from "../hooks"
 
 // Import screens
-import HomeScreen from "../screens/HomeScreen"
-import CalendarScreen from "../screens/CalendarScreen"
-import NotificationsScreen from "../screens/NotificationsScreen"
-import ProfileScreen from "../screens/ProfileScreen"
-import SettingsScreen from "../screens/SettingsScreen"
+import { HomeScreen, CalendarScreen, NotificationsScreen, ProfileScreen, SettingsScreen } from "../screens"
 
 const Tab = createBottomTabNavigator()
 
@@ -44,7 +40,7 @@ const CustomTabBar = ({ state, descriptors, navigation }) => {
       duration: 200,
       useNativeDriver: true,
     }).start()
-  }, [state.index])
+  }, [state.index, animatedValues])
 
   // Theme colors
   const theme = {

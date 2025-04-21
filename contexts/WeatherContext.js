@@ -1,6 +1,6 @@
 "use client"
 
-import { createContext, useState, useEffect } from "react"
+import { createContext, useState, useEffect, useCallback } from "react"
 import AsyncStorage from "@react-native-async-storage/async-storage"
 import * as Location from "expo-location"
 
@@ -57,7 +57,7 @@ export const WeatherProvider = ({ children }) => {
     if (location && weatherSettings.enabled) {
       fetchWeatherData()
     }
-  }, [location])
+  }, [location, weatherSettings.enabled, fetchWeatherData])
 
   // Lưu cài đặt thời tiết
   const saveWeatherSettings = async (settings) => {
@@ -101,7 +101,7 @@ export const WeatherProvider = ({ children }) => {
   }
 
   // Lấy dữ liệu thời tiết từ API
-  const fetchWeatherData = async () => {
+  const fetchWeatherData = useCallback(async () => {
     try {
       setIsLoading(true)
       setError(null)
@@ -146,7 +146,7 @@ export const WeatherProvider = ({ children }) => {
     } finally {
       setIsLoading(false)
     }
-  }
+  }, [location])
 
   // Kiểm tra cảnh báo thời tiết cho ca làm việc
   const checkWeatherAlertsForShift = (shift) => {

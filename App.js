@@ -9,24 +9,22 @@ import { Ionicons } from "@expo/vector-icons"
 import { StatusBar } from "react-native"
 import AsyncStorage from "@react-native-async-storage/async-storage"
 
-// Screens
-import HomeScreen from "./screens/HomeScreen"
-import SettingsScreen from "./screens/SettingsScreen"
-import NotesScreen from "./screens/NotesScreen"
-import StatsScreen from "./screens/StatsScreen"
-import SampleDataScreen from "./screens/SampleDataScreen"
+// Import screens from the index.js file
+import { HomeScreen, SettingsScreen, NotesScreen, StatsScreen, SampleDataScreen } from "./screens"
 
-// Contexts
-import { ThemeProvider } from "./contexts/ThemeContext"
-import { LanguageProvider } from "./contexts/LanguageContext"
-import { WorkProvider } from "./contexts/WorkContext"
-import { NotificationProvider } from "./contexts/NotificationContext"
-import { AlarmProvider } from "./contexts/AlarmContext"
-import { WeatherProvider } from "./contexts/WeatherContext"
-import { BackupProvider } from "./contexts/BackupContext"
+// Import contexts from the index.js file
+import {
+  ThemeProvider,
+  LanguageProvider,
+  WorkProvider,
+  NotificationProvider,
+  AlarmProvider,
+  WeatherProvider,
+  BackupProvider,
+} from "./contexts"
 
-// Utils
-import { initializeDefaultShifts } from "./utils/shiftUtils"
+// Import utils from the index.js file
+import { shiftUtils } from "./utils"
 import { useTheme } from "./hooks/useTheme"
 import { useTranslation } from "./hooks/useTranslation"
 
@@ -122,6 +120,7 @@ const StatsStack = () => {
 const AppContent = () => {
   const { theme } = useTheme()
   const { t } = useTranslation()
+  const { initializeDefaultShifts } = shiftUtils
 
   useEffect(() => {
     const initializeApp = async () => {

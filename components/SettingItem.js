@@ -1,7 +1,7 @@
 "use client"
 import { View, Text, StyleSheet } from "react-native"
 import { Ionicons } from "@expo/vector-icons"
-import { useTheme } from "../hooks/useTheme"
+import { useTheme } from "../hooks"
 
 const SettingItem = ({ icon, title, description, right }) => {
   const { isDarkMode } = useTheme()

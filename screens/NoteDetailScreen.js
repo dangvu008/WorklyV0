@@ -63,7 +63,7 @@ const NoteDetailScreen = ({ route, navigation }) => {
         setIsLinkingShifts(note.linkedShiftIds && note.linkedShiftIds.length > 0)
       }
     }
-  }, [noteId])
+  }, [noteId, getNoteById])
 
   // Handle time picker change
   const handleTimeChange = (event, selectedTime) => {

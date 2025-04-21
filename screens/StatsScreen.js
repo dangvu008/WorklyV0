@@ -1,9 +1,7 @@
 "use client"
 import { useState } from "react"
 import { View, Text, StyleSheet, SafeAreaView } from "react-native"
-import { useTheme } from "../hooks/useTheme"
-import { useTranslation } from "../hooks/useTranslation"
-import { useWork } from "../hooks/useWork"
+import { useTheme, useTranslation, useWork } from "../hooks"
 
 const StatsScreen = () => {
   const { isDarkMode } = useTheme()
