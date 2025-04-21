@@ -1,8 +1,6 @@
 "use client"
 import { View, Text, StyleSheet, FlatList } from "react-native"
-import { format, parseISO } from "date-fns"
-import { vi } from "date-fns/locale/vi"
-import { enUS } from "date-fns/locale/en-US"
+import { format, parseISO, vi, enUS } from "date-fns"
 
 const DailyStatusList = ({ month, dailyWorkStatus, getStatusColor, theme, language = "en" }) => {
   // Filter work status for the selected month

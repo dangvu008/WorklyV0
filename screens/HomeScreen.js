@@ -4,9 +4,7 @@ import { useState, useEffect } from "react"
 import { View, Text, StyleSheet, ScrollView, TouchableOpacity, Alert, RefreshControl, Modal } from "react-native"
 import { SafeAreaView } from "react-native-safe-area-context"
 import { Ionicons } from "@expo/vector-icons"
-import { format } from "date-fns"
-import { vi } from "date-fns/locale/vi"
-import { enUS } from "date-fns/locale/en-US"
+import { format, vi, enUS } from "date-fns"
 
 // Import from index files
 import { MultiActionButton, WeekStatusGrid, WorkNotesList, WeatherAlert, WeatherWidget } from "../components"

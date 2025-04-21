@@ -1,6 +1,4 @@
-import { format, addDays, subDays, startOfWeek } from "date-fns"
-import { vi } from "date-fns/locale/vi"
-import { enUS } from "date-fns/locale/en-US"
+import { format, addDays, subDays, startOfWeek, vi, enUS } from "date-fns"
 
 // Format ngày theo định dạng yyyy-MM-dd
 export const formatDate = (date) => {
