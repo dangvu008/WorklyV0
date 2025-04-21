@@ -3,7 +3,7 @@
 import { createContext, useState, useEffect } from "react"
 import AsyncStorage from "@react-native-async-storage/async-storage"
 import * as Notifications from "expo-notifications"
-import * as Device from "expo-device" // Fixed import statement
+// import * as Device from "expo-device" - removed for Snack compatibility
 import { Platform } from "react-native"
 import { SoundService, FileSystem } from "../services"
 
@@ -288,7 +288,7 @@ export const NotificationProvider = ({ children }) => {
   )
 }
 
-// Hàm đăng ký thông báo
+// Hàm đăng ký thông báo - Simplified for Snack compatibility
 async function registerForPushNotificationsAsync() {
   let token
 
@@ -301,7 +301,8 @@ async function registerForPushNotificationsAsync() {
     })
   }
 
-  if (Device.isDevice) {
+  try {
+    // Assume we're on a device when running in Snack
     const { status: existingStatus } = await Notifications.getPermissionsAsync()
     let finalStatus = existingStatus
 
@@ -315,9 +316,12 @@ async function registerForPushNotificationsAsync() {
       return
     }
 
-    token = (await Notifications.getExpoPushTokenAsync()).data
-  } else {
-    console.log("Must use physical device for Push Notifications")
+    // In Snack, this might not work, so we'll catch any errors
+    const response = await Notifications.getExpoPushTokenAsync()
+    token = response.data
+  } catch (error) {
+    console.log("Error getting push token:", error)
+    console.log("Push notifications may not work in Snack environment")
   }
 
   return token
