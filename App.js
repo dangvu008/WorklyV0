@@ -137,7 +137,7 @@ const AppContent = () => {
     }
 
     initializeApp()
-  }, [])
+  }, [initializeDefaultShifts])
 
   return (
     <NavigationContainer theme={theme}>
