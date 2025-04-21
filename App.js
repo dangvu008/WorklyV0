@@ -25,16 +25,17 @@ import {
 
 // Import utils from the index.js file
 import { shiftUtils } from "./utils"
-import { useTheme } from "./hooks/useTheme"
-import { useTranslation } from "./hooks/useTranslation"
+import { useContext } from "react"
+import { ThemeContext } from "./contexts/ThemeContext"
+import { LanguageContext } from "./contexts/LanguageContext"
 
 const Tab = createBottomTabNavigator()
 const Stack = createStackNavigator()
 
 // Tạo các stack navigator riêng cho từng tab
 const HomeStack = () => {
-  const { theme } = useTheme()
-  const { t } = useTranslation()
+  const { theme } = useContext(ThemeContext)
+  const { t } = useContext(LanguageContext)
 
   return (
     <Stack.Navigator
@@ -54,8 +55,8 @@ const HomeStack = () => {
 }
 
 const SettingsStack = () => {
-  const { theme } = useTheme()
-  const { t } = useTranslation()
+  const { theme } = useContext(ThemeContext)
+  const { t } = useContext(LanguageContext)
 
   return (
     <Stack.Navigator
@@ -76,8 +77,8 @@ const SettingsStack = () => {
 }
 
 const NotesStack = () => {
-  const { theme } = useTheme()
-  const { t } = useTranslation()
+  const { theme } = useContext(ThemeContext)
+  const { t } = useContext(LanguageContext)
 
   return (
     <Stack.Navigator
@@ -97,8 +98,8 @@ const NotesStack = () => {
 }
 
 const StatsStack = () => {
-  const { theme } = useTheme()
-  const { t } = useTranslation()
+  const { theme } = useContext(ThemeContext)
+  const { t } = useContext(LanguageContext)
 
   return (
     <Stack.Navigator
@@ -118,8 +119,8 @@ const StatsStack = () => {
 }
 
 const AppContent = () => {
-  const { theme } = useTheme()
-  const { t } = useTranslation()
+  const { theme } = useContext(ThemeContext)
+  const { t } = useContext(LanguageContext)
   const { initializeDefaultShifts } = shiftUtils
 
   useEffect(() => {
