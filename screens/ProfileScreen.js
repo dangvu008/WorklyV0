@@ -1,7 +1,6 @@
 "use client"
 import { View, Text, StyleSheet, SafeAreaView } from "react-native"
-import { useTheme } from "../hooks/useTheme"
-import { useTranslation } from "../hooks/useTranslation"
+import { useTheme, useTranslation } from "../hooks"
 
 const ProfileScreen = () => {
   const { isDarkMode } = useTheme()

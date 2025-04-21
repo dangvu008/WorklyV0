@@ -1,10 +1,8 @@
 "use client"
 import { View, Text, StyleSheet, FlatList, TouchableOpacity, Alert, SafeAreaView } from "react-native"
 import { Ionicons } from "@expo/vector-icons"
-import { useTheme } from "../hooks/useTheme"
-import { useTranslation } from "../hooks/useTranslation"
-import { useWork } from "../hooks/useWork"
-import ShiftItem from "../components/ShiftItem"
+import { useTheme, useTranslation, useWork } from "../hooks"
+import { ShiftItem } from "../components"
 
 const ShiftManagementScreen = ({ navigation }) => {
   const { isDarkMode } = useTheme()

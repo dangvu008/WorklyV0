@@ -2,8 +2,7 @@
 import { useState } from "react"
 import { View, Text, StyleSheet, SafeAreaView, TextInput, TouchableOpacity, FlatList } from "react-native"
 import { Ionicons } from "@expo/vector-icons"
-import { useTheme } from "../hooks/useTheme"
-import { useTranslation } from "../hooks/useTranslation"
+import { useTheme, useTranslation } from "../hooks"
 
 const SearchScreen = ({ navigation }) => {
   const { isDarkMode } = useTheme()

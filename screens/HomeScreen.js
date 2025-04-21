@@ -8,10 +8,8 @@ import { format } from "date-fns"
 import { vi } from "date-fns/locale/vi"
 import { enUS } from "date-fns/locale/en-US"
 
-// Components
+// Import from index files
 import { MultiActionButton, WeekStatusGrid, WorkNotesList, WeatherAlert, WeatherWidget } from "../components"
-
-// Hooks
 import { useTheme, useTranslation, useWork, useNotification, useWeather, useAlarm } from "../hooks"
 
 const HomeScreen = ({ navigation }) => {

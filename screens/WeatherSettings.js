@@ -4,10 +4,8 @@ import { useState, useEffect } from "react"
 import { View, Text, StyleSheet, ScrollView, TouchableOpacity, Switch, TextInput, Alert } from "react-native"
 import { SafeAreaView } from "react-native-safe-area-context"
 import { Ionicons } from "@expo/vector-icons"
-import { useTheme } from "../hooks/useTheme"
-import { useTranslation } from "../hooks/useTranslation"
-import { useWeather } from "../hooks/useWeather"
-import { isPaidApiEnabled, setPaidApiKey, removePaidApiKey } from "../services/WeatherService"
+import { useTheme, useTranslation, useWeather } from "../hooks"
+import { WeatherService } from "../services"
 
 const WeatherSettings = ({ navigation }) => {
   const { isDarkMode } = useTheme()
@@ -45,7 +43,7 @@ const WeatherSettings = ({ navigation }) => {
 
       // Check if paid API is enabled
       try {
-        const paidApiEnabled = await isPaidApiEnabled()
+        const paidApiEnabled = await WeatherService.isPaidApiEnabled()
         setIsPaidApiActive(paidApiEnabled)
       } catch (error) {
         console.error("Error checking paid API status:", error)
@@ -83,7 +81,7 @@ const WeatherSettings = ({ navigation }) => {
     }
 
     try {
-      await setPaidApiKey(apiKey)
+      await WeatherService.setPaidApiKey(apiKey)
       setIsPaidApiActive(true)
       setApiKey("")
       Alert.alert(t("settings.success"), t("settings.weatherApiKeySet"))
@@ -105,7 +103,7 @@ const WeatherSettings = ({ navigation }) => {
         style: "destructive",
         onPress: async () => {
           try {
-            await removePaidApiKey()
+            await WeatherService.removePaidApiKey()
             setIsPaidApiActive(false)
             Alert.alert(t("settings.success"), t("settings.weatherApiKeyRemoved"))
           } catch (error) {

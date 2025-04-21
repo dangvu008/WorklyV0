@@ -2,9 +2,8 @@
 import { useState } from "react"
 import { View, Text, StyleSheet, TouchableOpacity, ScrollView, SafeAreaView, StatusBar, Alert } from "react-native"
 import { Ionicons } from "@expo/vector-icons"
-import { useTheme } from "../hooks/useTheme"
-import { useBackup } from "../hooks/useBackup"
-import BackupRestoreSection from "../components/BackupRestoreSection"
+import { useTheme, useBackup } from "../hooks"
+import { BackupRestoreSection } from "../components"
 
 const BackupRestoreScreen = ({ navigation }) => {
   const { isDarkMode } = useTheme()

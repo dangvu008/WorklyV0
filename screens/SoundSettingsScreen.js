@@ -15,9 +15,8 @@ import {
   Modal,
 } from "react-native"
 import { Ionicons } from "@expo/vector-icons"
-import { useTheme } from "../hooks/useTheme"
-import { useTranslation } from "../hooks/useTranslation"
-import * as SoundService from "../services/SoundService"
+import { useTheme, useTranslation } from "../hooks"
+import { SoundService } from "../services"
 
 const SoundSettingsScreen = ({ navigation }) => {
   const { isDarkMode } = useTheme()

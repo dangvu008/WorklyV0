@@ -1,7 +1,7 @@
 "use client"
 
 import { useContext } from "react"
-import { AlarmContext } from "../contexts/AlarmContext"
+import { AlarmContext } from "../contexts"
 
 export const useAlarm = () => {
   const context = useContext(AlarmContext)

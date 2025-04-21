@@ -12,8 +12,8 @@ import {
   Alert,
 } from "react-native"
 import { Ionicons } from "@expo/vector-icons"
-import { useTheme } from "../hooks/useTheme"
-import * as SampleDataService from "../services/SampleDataService"
+import { useTheme } from "../hooks"
+import { SampleDataService } from "../services"
 
 const SampleDataScreen = ({ navigation }) => {
   const { isDarkMode } = useTheme()

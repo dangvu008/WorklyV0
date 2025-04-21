@@ -2,9 +2,8 @@
 import { useState, useEffect } from "react"
 import { View, Text, StyleSheet, TouchableOpacity, ScrollView, SafeAreaView } from "react-native"
 import { Ionicons } from "@expo/vector-icons"
-import { useTheme } from "../hooks/useTheme"
-import EnhancedWeatherWidget from "../components/EnhancedWeatherWidget"
-import TimelineWidget from "../components/TimelineWidget"
+import { useTheme } from "../hooks"
+import { EnhancedWeatherWidget, TimelineWidget } from "../components"
 
 const HomeScreenEnhanced = () => {
   const { isDarkMode } = useTheme()

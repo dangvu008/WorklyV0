@@ -1,7 +1,7 @@
 "use client"
 
 import { useContext } from "react"
-import { WorkContext } from "../contexts/WorkContext"
+import { WorkContext } from "../contexts"
 
 export const useWork = () => {
   const context = useContext(WorkContext)

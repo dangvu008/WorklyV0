@@ -1,7 +1,7 @@
 "use client"
 
 import { useContext } from "react"
-import { BackupContext } from "../contexts/BackupContext"
+import { BackupContext } from "../contexts"
 
 export const useBackup = () => {
   const context = useContext(BackupContext)

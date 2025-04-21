@@ -12,9 +12,8 @@ import {
   ScrollView,
 } from "react-native"
 import { Ionicons } from "@expo/vector-icons"
-import { useTheme } from "../hooks/useTheme"
-import { useAlarm } from "../hooks/useAlarm"
-import AlarmItem from "../components/AlarmItem"
+import { useTheme, useAlarm } from "../hooks"
+import { AlarmItem } from "../components"
 
 const AlarmsScreen = ({ navigation }) => {
   const { isDarkMode } = useTheme()

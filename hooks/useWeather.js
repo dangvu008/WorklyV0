@@ -1,7 +1,7 @@
 "use client"
 
 import { useContext } from "react"
-import { WeatherContext } from "../contexts/WeatherContext"
+import { WeatherContext } from "../contexts"
 
 export const useWeather = () => {
   const context = useContext(WeatherContext)

@@ -1,8 +1,7 @@
 "use client"
 import { View, Text, StyleSheet, SafeAreaView, TouchableOpacity } from "react-native"
 import { Ionicons } from "@expo/vector-icons"
-import { useTheme } from "../hooks/useTheme"
-import { useTranslation } from "../hooks/useTranslation"
+import { useTheme, useTranslation } from "../hooks"
 
 const DetailScreen = ({ navigation, route }) => {
   const { isDarkMode } = useTheme()

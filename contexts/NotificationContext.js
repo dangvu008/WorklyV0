@@ -3,10 +3,9 @@
 import { createContext, useState, useEffect } from "react"
 import AsyncStorage from "@react-native-async-storage/async-storage"
 import * as Notifications from "expo-notifications"
-import * as Device from "expo-device"
+import * as Device from "expo-device" // Fixed import statement
 import { Platform } from "react-native"
-import * as SoundService from "../services/SoundService"
-import * as FileSystem from "expo-file-system"
+import { SoundService, FileSystem } from "../services"
 
 // Tạo context
 export const NotificationContext = createContext()

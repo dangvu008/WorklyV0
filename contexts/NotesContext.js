@@ -3,7 +3,7 @@
 import { createContext, useState, useEffect } from "react"
 import AsyncStorage from "@react-native-async-storage/async-storage"
 import { v4 as uuidv4 } from "uuid"
-import * as NoteReminderService from "../services/NoteReminderService"
+import { NoteReminderService } from "../services"
 
 // Create context
 export const NotesContext = createContext()

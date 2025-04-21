@@ -5,11 +5,8 @@ import { View, Text, StyleSheet, ScrollView, TouchableOpacity, Alert, SafeAreaVi
 import { Ionicons } from "@expo/vector-icons"
 import AsyncStorage from "@react-native-async-storage/async-storage"
 
-// Hooks
+// Import from index files
 import { useTheme, useTranslation, useWork, useNotification, useWeather } from "../hooks"
-import { WeatherService } from "../services"
-
-const { isPaidApiEnabled, setPaidApiKey, removePaidApiKey } = WeatherService
 
 const SettingsScreen = ({ navigation }) => {
   const { theme, isDarkMode, toggleTheme } = useTheme()
@@ -25,6 +22,37 @@ const SettingsScreen = ({ navigation }) => {
   const [weatherApiModalVisible, setWeatherApiModalVisible] = useState(false)
   const [weatherApiKey, setWeatherApiKey] = useState("")
   const [isPaidApiActive, setIsPaidApiActive] = useState(false)
+
+  // Function to check if paid API is enabled
+  const isPaidApiEnabled = async () => {
+    try {
+      const apiKey = await AsyncStorage.getItem("@weather_api_key")
+      return !!apiKey // Returns true if apiKey exists, false otherwise
+    } catch (error) {
+      console.error("Error checking weather API key:", error)
+      return false
+    }
+  }
+
+  // Function to set the paid API key
+  const setPaidApiKey = async (apiKey) => {
+    try {
+      await AsyncStorage.setItem("@weather_api_key", apiKey)
+    } catch (error) {
+      console.error("Error saving weather API key:", error)
+      throw error // Re-throw the error for the caller to handle
+    }
+  }
+
+  // Function to remove the paid API key
+  const removePaidApiKey = async () => {
+    try {
+      await AsyncStorage.removeItem("@weather_api_key")
+    } catch (error) {
+      console.error("Error removing weather API key:", error)
+      throw error // Re-throw the error for the caller to handle
+    }
+  }
 
   // Load settings
   useEffect(() => {

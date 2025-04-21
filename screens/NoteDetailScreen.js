@@ -16,10 +16,7 @@ import {
 } from "react-native"
 import { Ionicons } from "@expo/vector-icons"
 import DateTimePicker from "@react-native-community/datetimepicker"
-import { useTheme } from "../hooks/useTheme"
-import { useTranslation } from "../hooks/useTranslation"
-import { useNotes } from "../hooks/useNotes"
-import { useWork } from "../hooks/useWork"
+import { useTheme, useTranslation, useNotes, useWork } from "../hooks"
 
 const NoteDetailScreen = ({ route, navigation }) => {
   const { noteId } = route.params || {}

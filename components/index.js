@@ -15,6 +15,7 @@ import SettingItem from "./SettingItem"
 import BackupRestoreSection from "./BackupRestoreSection"
 import BottomTabNavigator from "./BottomTabNavigator"
 import AnimatedBottomTabNavigator from "./AnimatedBottomTabNavigator"
+import ShiftItem from "./ShiftItem"
 
 // Import sub-directories
 import * as UI from "./ui"
@@ -38,6 +39,7 @@ export {
   BackupRestoreSection,
   BottomTabNavigator,
   AnimatedBottomTabNavigator,
+  ShiftItem,
   UI,
   Stats,
 }
@@ -60,6 +62,7 @@ const Components = {
   BackupRestoreSection,
   BottomTabNavigator,
   AnimatedBottomTabNavigator,
+  ShiftItem,
   UI,
   Stats,
 }

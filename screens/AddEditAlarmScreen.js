@@ -14,8 +14,7 @@ import {
 } from "react-native"
 import { Ionicons } from "@expo/vector-icons"
 import DateTimePicker from "@react-native-community/datetimepicker"
-import { useTheme } from "../hooks/useTheme"
-import { useAlarm } from "../hooks/useAlarm"
+import { useTheme, useAlarm } from "../hooks"
 
 const AddEditAlarmScreen = ({ route, navigation }) => {
   const { alarm } = route.params || {}

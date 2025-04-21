@@ -1,7 +1,6 @@
 "use client"
 import { useState } from "react"
 import { Switch } from "react-native"
-
 import {
   View,
   Text,
@@ -13,6 +12,8 @@ import {
   RefreshControl,
 } from "react-native"
 import { Ionicons } from "@expo/vector-icons"
+
+// Import from index files
 import { useTheme, useWeather, useWork } from "../hooks"
 import { WeatherWidget, WeatherAlert } from "../components"
 
