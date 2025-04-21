@@ -1,6 +1,7 @@
 // Import all hooks
-import { useTheme } from "./useTheme"
-import { useTranslation } from "./useTranslation"
+// Using Snack compatible versions
+import { useTheme } from "./useThemeSnack"
+import { useTranslation } from "./useTranslationSnack"
 import { useWork } from "./useWork"
 import { useNotification } from "./useNotification"
 import { useAlarm } from "./useAlarm"
