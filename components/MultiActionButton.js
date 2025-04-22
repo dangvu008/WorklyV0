@@ -1,7 +1,7 @@
 "use client"
 
 import React from "react"
-import { View, Text, StyleSheet, TouchableOpacity, Animated, Easing } from "react-native"
+import { View, Text, StyleSheet, TouchableOpacity, Animated, Easing, Platform } from "react-native"
 import { Ionicons } from "@expo/vector-icons"
 import { useTheme, useTranslation } from "../hooks"
 
@@ -104,13 +104,13 @@ const MultiActionButton = ({ workStatus, onAction, onReset, showResetButton = fa
         toValue: 0.95,
         duration: 100,
         easing: Easing.inOut(Easing.ease),
-        useNativeDriver: true,
+        useNativeDriver: Platform.OS !== "web", // Disable on web
       }),
       Animated.timing(scaleAnim, {
         toValue: 1,
         duration: 100,
         easing: Easing.inOut(Easing.ease),
-        useNativeDriver: true,
+        useNativeDriver: Platform.OS !== "web", // Disable on web
       }),
     ]).start()
 
@@ -127,7 +127,7 @@ const MultiActionButton = ({ workStatus, onAction, onReset, showResetButton = fa
       toValue: 1,
       duration: 300,
       easing: Easing.inOut(Easing.ease),
-      useNativeDriver: true,
+      useNativeDriver: Platform.OS !== "web", // Disable on web
     }).start(() => {
       rotateAnim.setValue(0)
       if (onReset) onReset()

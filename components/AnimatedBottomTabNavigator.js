@@ -1,7 +1,7 @@
 "use client"
 
 import React from "react"
-import { View, Text, TouchableOpacity, StyleSheet, Animated } from "react-native"
+import { View, Text, TouchableOpacity, StyleSheet, Animated, Platform } from "react-native"
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs"
 import { useSafeAreaInsets } from "react-native-safe-area-context"
 import { Ionicons } from "@expo/vector-icons"
@@ -25,7 +25,7 @@ const CustomTabBar = ({ state, descriptors, navigation }) => {
         Animated.timing(value, {
           toValue: 0,
           duration: 200,
-          useNativeDriver: true,
+          useNativeDriver: Platform.OS !== "web", // Disable on web
         }).start()
       }
     })
@@ -34,7 +34,7 @@ const CustomTabBar = ({ state, descriptors, navigation }) => {
     Animated.timing(animatedValues[focusedTab], {
       toValue: 1,
       duration: 200,
-      useNativeDriver: true,
+      useNativeDriver: Platform.OS !== "web", // Disable on web
     }).start()
   }, [state.index, animatedValues])
 

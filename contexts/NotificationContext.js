@@ -90,14 +90,28 @@ export const NotificationProvider = ({ children }) => {
   // Cập nhật hàm scheduleNotification để kiểm tra âm thanh đã tải xuống
   const scheduleNotification = async (title, body, trigger, data = {}) => {
     try {
+      // Skip on web platform
+      if (Platform.OS === "web") {
+        console.log("Scheduling notifications is not supported on web")
+        // Just show an alert on web
+        if (typeof window !== "undefined" && window.alert) {
+          window.alert(`${title}: ${body}`)
+        }
+        return true
+      }
+
       // Lấy URI âm thanh tùy chỉnh
       const soundUri = await SoundService.getSoundFileUri()
 
       // Kiểm tra xem file âm thanh có tồn tại không
       let soundExists = false
       if (soundUri) {
-        const soundInfo = await FileSystem.getInfoAsync(soundUri)
-        soundExists = soundInfo.exists
+        try {
+          const soundInfo = await FileSystem.getInfoAsync(soundUri)
+          soundExists = soundInfo.exists
+        } catch (error) {
+          console.log("Error checking sound file:", error)
+        }
       }
 
       await Notifications.scheduleNotificationAsync({
@@ -292,13 +306,23 @@ export const NotificationProvider = ({ children }) => {
 async function registerForPushNotificationsAsync() {
   let token
 
+  // Skip on web platform
+  if (Platform.OS === "web") {
+    console.log("Push notifications are not supported on web")
+    return null
+  }
+
   if (Platform.OS === "android") {
-    await Notifications.setNotificationChannelAsync("default", {
-      name: "default",
-      importance: Notifications.AndroidImportance.MAX,
-      vibrationPattern: [0, 250, 250, 250],
-      lightColor: "#FF231F7C",
-    })
+    try {
+      await Notifications.setNotificationChannelAsync("default", {
+        name: "default",
+        importance: Notifications.AndroidImportance.MAX,
+        vibrationPattern: [0, 250, 250, 250],
+        lightColor: "#FF231F7C",
+      })
+    } catch (error) {
+      console.log("Error setting notification channel:", error)
+    }
   }
 
   try {
@@ -313,15 +337,19 @@ async function registerForPushNotificationsAsync() {
 
     if (finalStatus !== "granted") {
       console.log("Failed to get push token for push notification!")
-      return
+      return null
     }
 
     // In Snack, this might not work, so we'll catch any errors
-    const response = await Notifications.getExpoPushTokenAsync()
-    token = response.data
+    try {
+      const response = await Notifications.getExpoPushTokenAsync()
+      token = response.data
+    } catch (tokenError) {
+      console.log("Error getting push token:", tokenError)
+      console.log("Push notifications may not work in Snack environment")
+    }
   } catch (error) {
-    console.log("Error getting push token:", error)
-    console.log("Push notifications may not work in Snack environment")
+    console.log("Error in notification permissions:", error)
   }
 
   return token

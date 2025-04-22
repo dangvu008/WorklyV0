@@ -2,6 +2,7 @@ import { Audio } from "expo-av"
 import * as FileSystem from "expo-file-system"
 import * as DocumentPicker from "expo-document-picker"
 import AsyncStorage from "@react-native-async-storage/async-storage"
+import { Platform } from "react-native"
 
 // Storage keys
 const STORAGE_KEYS = {
@@ -68,6 +69,12 @@ export const checkInternetConnection = async () => {
 // Cập nhật hàm initSoundService để tải trước các âm thanh mặc định
 export const initSoundService = async () => {
   try {
+    // Check if running on web
+    if (Platform.OS === "web") {
+      console.log("Running on web, skipping file system operations")
+      return true
+    }
+
     // Create sounds directory if it doesn't exist
     const dirInfo = await FileSystem.getInfoAsync(SOUND_DIRECTORY)
     if (!dirInfo.exists) {
@@ -486,6 +493,12 @@ export const playSound = async (soundId = null) => {
  */
 export const getSoundFileUri = async () => {
   try {
+    // Check if running on web
+    if (Platform.OS === "web") {
+      console.log("Running on web, returning null for sound URI")
+      return null
+    }
+
     const selectedSound = await getSelectedSound()
 
     // If it's the default sound, return null (system will use default)
